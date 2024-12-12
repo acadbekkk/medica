@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "org.acad.domain"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 30
