@@ -40,6 +40,7 @@ dependencies {
 
     implementation(project(":domain"))
 
+    implementation (libs.koin.android)
     implementation (libs.rxandroid)
     implementation (libs.rxkotlin)
 

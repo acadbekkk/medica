@@ -6,13 +6,14 @@ import android.view.View
 import org.acad.presentation.base.BaseFragment
 import org.acad.presentation.databinding.FragmentSplashBinding
 import org.acad.presentation.screens.splash.SplashVM.Effect
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * Created by Acad Bek on 12/28/2024
  */
 class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding::inflate) {
 
-    private lateinit var vm: SplashVM
+    private val vm: SplashVM by viewModel()
 
     @SuppressLint("CheckResult")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
