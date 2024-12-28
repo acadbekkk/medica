@@ -43,6 +43,7 @@ dependencies {
     implementation(project(":presentation"))
 
     implementation (libs.koin.android)
+    implementation(libs.cicerone)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

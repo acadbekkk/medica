@@ -1,6 +1,7 @@
 package org.acad.medica.app
 
 import android.app.Application
+import org.acad.medica.di.appModule
 import org.acad.medica.di.localModule
 import org.acad.medica.di.remoteModule
 import org.acad.medica.di.repoModule
@@ -22,6 +23,7 @@ class App : Application() {
             androidLogger()
             androidContext(this@App)
             modules(
+                    appModule,
                     repoModule,
                     useCaseModule,
                     localModule,
