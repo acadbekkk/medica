@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="red">#F44336</color>
+    <color name="white">#FFFFFF</color>
+    <color name="primary">#246BFD</color>
+    <color name="primary_txt">#ffffff</color>
+    <color name="hint">#ffffff</color>
+    <color name="input_txt_field">#1F222A</color>
+    <color name="layout_background">#181A20</color>
+    <color name="icon_background">#1F222A</color>
+    <color name="icon_stroke">#35383F</color>
+    <color name="input_background">#14246BFD</color>
+    <color name="txtv_background">#1F222A</color>
+    <color name="txt_stroke">#35383F</color>
+    <color name="dots_color">#35383F</color>
+    <color name="selected_dot_color">#246BFD</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="divider">#35383F</color>
+    <color name="tint_apple">#FFFFFF</color>
+    <color name="otp_background">#1CF44336</color>
+    <color name="avatar_background">#464648</color>
+</resources>

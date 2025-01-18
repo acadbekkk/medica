@@ -11,7 +11,7 @@ import io.reactivex.rxjava3.subjects.*
  */
 abstract class BaseVM<State : Any,  Event : Any, Effect : Any> : ViewModel() {
 
-    private val stateSubject = BehaviorSubject.createDefault<State>(this.getDefaultState())
+    private val stateSubject = BehaviorSubject.createDefault(this.getDefaultState())
     val state : Observable<State> get() = stateSubject
         .distinctUntilChanged()
         .subscribeOn(Schedulers.computation())

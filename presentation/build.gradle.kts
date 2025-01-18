@@ -40,14 +40,19 @@ dependencies {
 
     implementation(project(":domain"))
 
-    implementation (libs.koin.android)
-    implementation (libs.rxandroid)
-    implementation (libs.rxkotlin)
+    implementation(libs.koin.android)
+    implementation(libs.rxandroid)
+    implementation(libs.rxkotlin)
     implementation(libs.cicerone)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.library.base)
+    implementation(libs.material)
+    implementation(libs.dotsindicator)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.androidx.viewpager2)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

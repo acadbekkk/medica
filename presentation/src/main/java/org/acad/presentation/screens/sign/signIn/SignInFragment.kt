@@ -1,4 +1,4 @@
-package org.acad.presentation.screens.signIn
+package org.acad.presentation.screens.sign.signIn
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -15,6 +15,8 @@ import com.google.android.material.textfield.TextInputEditText
 import org.acad.presentation.R
 import org.acad.presentation.base.BaseFragment
 import org.acad.presentation.databinding.FragmentSignInBinding
+import org.acad.presentation.screens.sign.signIn.SignInVM.Event.NavigateToHome
+import org.acad.presentation.screens.sign.signIn.SignInVM.Event.NavigateToSignUp
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -23,59 +25,32 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding::inflate) {
     private val vm: SignInVM by viewModel()
 
-    private var isPassVisible = false
-
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_sign_in, container, false)
-        view.setOnTouchListener { _, _ ->
-            hideKeyboard()
-            view.clearFocus()
+        _binding = FragmentSignInBinding.inflate(inflater, container, false)
+        binding.root.setOnTouchListener{_, _ ->
+         hideKeyboard()
+         binding.root.clearFocus()
             true
         }
-        return view
+        return binding.root
     }
 
-    private fun hideKeyboard() {
-        val imm =
-            requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        val currentFocus = requireActivity().currentFocus
-        if (currentFocus != null) {
-            imm.hideSoftInputFromWindow(currentFocus.windowToken, 0)
-            currentFocus.clearFocus()
-        }
-    }
-
-    @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val email = view.findViewById<TextInputEditText>(R.id.email)
-        val pass = view.findViewById<TextInputEditText>(R.id.pass)
-        val eye = view.findViewById<ImageButton>(R.id.eye)
-        val btn = view.findViewById<Button>(R.id.btn)
-        val check = view.findViewById<CheckBox>(R.id.check)
+        initUI()
+    }
+
+    private fun initUI() = with(binding) {
 
         // Set initial drawable colors
         updateDrawableColors(email, R.color.hint)
         updateDrawableColors(pass, R.color.hint)
-
-        // Set initial icon state
-//        eye.setImageResource(R.drawable.invisible)
-
-//        eye.setOnClickListener {
-//            if (pass.inputType == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
-//                pass.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-//                eye.setImageResource(R.drawable.visible)
-//            } else if (pass.inputType != InputType.TYPE_TEXT_VARIATION_PASSWORD) {
-//                pass.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
-//                eye.setImageResource(R.drawable.invisible)
-//            }
-//        }
 
         // Change colors when focused or selected
         pass.setOnFocusChangeListener { _, hashFocus ->
@@ -88,6 +63,18 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding
             updateDrawableColors(email, color)
         }
 
+        btn.setOnClickListener {
+            vm.processEvent(NavigateToHome)
+        }
+
+        back.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
+        signUp.setOnClickListener {
+            vm.processEvent(NavigateToSignUp)
+
+        }
     }
 
     private fun updateDrawableColors(editText: TextInputEditText, coloRes: Int) {
@@ -100,4 +87,13 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding
             startDrawable, null, null, null
         )
     }
+
+    private fun hideKeyboard() {
+        val imm = requireContext()
+            .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        view?.let {
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
+        }
+    }
+
 }

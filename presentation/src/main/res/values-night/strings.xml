@@ -1,3 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="medica_welcome">Medica</string>
+    <string name="welcome_to_medica">Welcome to Medica! 👋</string>
+    <string name="welcom_txt"><![CDATA[The best online doctor appointment & \nconsultation app of the century for your health and medical needs!]]></string>
+    <string name="walkthrough2">Let\'s start living healthy and well with us right now!</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_get_start">Get Start</string>
+    <string name="let_s">Let’s you in</string>
+    <string name="facebook">Continue with Facebook</string>
+    <string name="google">Continue with Google</string>
+    <string name="apple">Continue with Apple</string>
+    <string name="or">or</string>
+    <string name="sign">Sign in with password</string>
+    <string name="dont">Don’t have an account?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="otp">Invalid OTP code</string>
+    <string name="email_error">Please enter a valid email address</string>
+    <string name="pass_error">Please enter your password</string>
+    <string name="remember">Remember me</string>
+    <string name="sign_up_btn_txt">SIGN UP</string>
+    <string name="or_">or continue with</string>
+    <string name="sign_in">Sign in</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="don_t_have_an_account">Don’t have an account?</string>
+    <string name="name">Full Name</string>
+    <string name="nickName">Nickname</string>
+    <string name="date">Date of Birth</string>
 </resources>

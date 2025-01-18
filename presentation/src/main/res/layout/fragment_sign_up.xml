@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/signIn"
-    android:background="@color/layout_background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/layout_background">
 
     <ImageButton
         android:id="@+id/back"
@@ -91,7 +91,9 @@
         app:boxStrokeColor="@color/primary"
         app:boxStrokeWidth="0dp"
         app:hintTextColor="@color/primary"
-        app:layout_constraintTop_toBottomOf="@id/emailL">
+        app:layout_constraintTop_toBottomOf="@id/emailL"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/pass_toggle_color">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/pass"
@@ -108,19 +110,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageButton
-        android:id="@+id/eye"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/transparent"
-        android:paddingHorizontal="12dp"
-        android:paddingVertical="4dp"
-        android:src="@drawable/invisible"
-        app:layout_constraintBottom_toBottomOf="@id/passL"
-        app:layout_constraintEnd_toEndOf="@id/passL"
-        app:layout_constraintTop_toTopOf="@id/passL"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/otp"
@@ -170,12 +159,12 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="20dp"
-        app:backgroundTint="@color/primary"
         android:background="@drawable/btn_background"
         android:fontFamily="@font/bold"
         android:text="@string/sign_up_btn_txt"
         android:textColor="@color/white"
         android:textSize="16sp"
+        app:backgroundTint="@color/primary"
         app:layout_constraintTop_toBottomOf="@id/check" />
 
     <com.google.android.material.divider.MaterialDivider
@@ -247,13 +236,13 @@
         android:text="@string/already_have_an_account"
         android:textColor="@color/hint"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@id/sign_in"
+        app:layout_constraintEnd_toStartOf="@id/to_sign_in"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="@id/divider"
         app:layout_constraintTop_toBottomOf="@id/facebook" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/sign_in"
+        android:id="@+id/to_sign_in"
         style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -265,6 +254,7 @@
         app:layout_constraintEnd_toEndOf="@id/divider"
         app:layout_constraintStart_toEndOf="@id/hacc"
         app:layout_constraintTop_toBottomOf="@id/facebook"
-        app:layout_constraintTop_toTopOf="@id/hacc" />
+        app:layout_constraintTop_toTopOf="@id/hacc"
+        app:layout_constraintVertical_bias="0.645" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

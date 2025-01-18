@@ -1,6 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background">
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/transparent"
+        android:padding="8dp"
+        android:src="@drawable/back"
+        android:tint="@color/tint_apple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,UseAppTint"/>
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/sign_in_logo"
+        app:layout_constraintBottom_toTopOf="@+id/txt"
+        app:layout_constraintTop_toBottomOf="@id/back" />
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/bold"
+        android:gravity="center"
+        android:text="@string/let_s"
+        android:textColor="@color/primary_txt"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/facebook"
+        app:layout_constraintTop_toBottomOf="@id/avatar" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/facebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/semibold"
+        android:gravity="center"
+        android:paddingVertical="12dp"
+        android:text="@string/facebook"
+        android:textColor="@color/primary_txt"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/google"
+        app:layout_constraintTop_toBottomOf="@+id/txt" />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="56dp"
+        android:src="@drawable/facebook"
+        app:layout_constraintBottom_toBottomOf="@id/facebook"
+        app:layout_constraintStart_toStartOf="@id/facebook"
+        app:layout_constraintTop_toTopOf="@id/facebook" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/google"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/semibold"
+        android:gravity="center"
+        android:paddingVertical="12dp"
+        android:text="@string/google"
+        android:textColor="@color/primary_txt"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/apple"
+        app:layout_constraintTop_toBottomOf="@+id/facebook" />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="56dp"
+        android:src="@drawable/google"
+        app:layout_constraintBottom_toBottomOf="@id/google"
+        app:layout_constraintStart_toStartOf="@id/google"
+        app:layout_constraintTop_toTopOf="@id/google" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/apple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/semibold"
+        android:gravity="center"
+        android:paddingVertical="12dp"
+        android:text="@string/apple"
+        android:textColor="@color/primary_txt"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/google" />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="56dp"
+        android:src="@drawable/apple"
+        android:tint="@color/tint_apple"
+        app:layout_constraintBottom_toBottomOf="@id/apple"
+        app:layout_constraintStart_toStartOf="@id/apple"
+        app:layout_constraintTop_toTopOf="@id/apple"
+        tools:ignore="UseAppTint" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        app:dividerColor="@color/divider"
+        app:layout_constraintBottom_toTopOf="@id/btn"
+        app:layout_constraintTop_toBottomOf="@id/apple" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/layout_background"
+        android:fontFamily="@font/semibold"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="4dp"
+        android:text="@string/or"
+        android:textColor="@color/primary_txt"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/divider"
+        app:layout_constraintEnd_toEndOf="@id/divider"
+        app:layout_constraintStart_toStartOf="@id/divider"
+        app:layout_constraintTop_toTopOf="@id/divider" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:background="@drawable/btn_background"
+        android:fontFamily="@font/bold"
+        android:text="@string/sign"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/sign_up"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
+
+    <TextView
+        android:id="@+id/dont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/regular"
+        android:text="@string/dont"
+        android:textColor="@color/primary_txt"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/sign_up"
+        app:layout_constraintEnd_toStartOf="@id/sign_up"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/btn"
+        app:layout_constraintTop_toTopOf="@id/sign_up" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_up"
+        style="@style/MaterialAlertDialog.Material3.Title.Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/transparent"
+        android:fontFamily="@font/semibold"
+        android:text="@string/sign_up"
+        android:textColor="@color/primary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/btn"
+        app:layout_constraintStart_toEndOf="@id/dont"
+        app:layout_constraintTop_toBottomOf="@id/btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signIn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background">
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/transparent"
+        android:padding="8dp"
+        android:src="@drawable/back"
+        android:tint="@color/tint_apple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,UseAppTint" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/emblem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back" />
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/bold"
+        android:gravity="center"
+        android:text="@string/sign_in_to_your_account"
+        android:textColor="@color/primary_txt"
+        android:textSize="32sp"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/input_background"
+        android:hint="@string/email"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxStrokeColor="@color/primary"
+        app:boxStrokeWidth="0dp"
+        app:hintTextColor="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/txt">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/email"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/semibold"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/primary_txt"
+            android:textColorHint="@color/hint"
+            android:textSize="14sp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/input_background"
+        android:hint="@string/pass"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxStrokeColor="@color/primary"
+        app:boxStrokeWidth="0dp"
+        app:hintTextColor="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/emailL"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/pass_toggle_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/lock"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/semibold"
+            android:inputType="textPassword"
+            android:textColor="@color/primary_txt"
+            android:textColorHint="@color/hint"
+            android:textSize="14sp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/otp"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/otp_background"
+        android:drawableStart="@drawable/error"
+        android:drawablePadding="4dp"
+        android:fontFamily="@font/semibold"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:text="@string/otp"
+        android:textColor="@color/red"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/passL" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:buttonTint="@color/primary"
+        app:layout_constraintEnd_toStartOf="@id/remember"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/passL"
+        app:layout_constraintTop_toBottomOf="@id/otp"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/remember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/semibold"
+        android:text="@string/remember"
+        android:textColor="@color/primary_txt"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/check"
+        app:layout_constraintEnd_toEndOf="@id/passL"
+        app:layout_constraintStart_toEndOf="@id/check"
+        app:layout_constraintTop_toTopOf="@id/check" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_background"
+        android:fontFamily="@font/bold"
+        android:text="@string/sign_in"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:backgroundTint="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/check" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        app:dividerColor="@color/divider"
+        app:layout_constraintTop_toBottomOf="@id/btn" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/layout_background"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="3dp"
+        android:text="@string/or_"
+        app:layout_constraintBottom_toBottomOf="@id/divider"
+        app:layout_constraintEnd_toEndOf="@id/divider"
+        app:layout_constraintStart_toStartOf="@id/divider"
+        app:layout_constraintTop_toTopOf="@id/divider" />
+
+    <ImageButton
+        android:id="@+id/facebook"
+        android:layout_width="88dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/icon_background"
+        android:src="@drawable/facebook"
+        app:layout_constraintEnd_toStartOf="@id/google"
+        app:layout_constraintStart_toStartOf="@id/divider"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/google"
+        android:layout_width="88dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/icon_background"
+        android:src="@drawable/google"
+        app:layout_constraintEnd_toStartOf="@id/apple"
+        app:layout_constraintStart_toEndOf="@id/facebook"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/apple"
+        android:layout_width="88dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/icon_background"
+        android:src="@drawable/apple"
+        android:tint="@color/primary_txt"
+        app:layout_constraintEnd_toEndOf="@id/divider"
+        app:layout_constraintStart_toEndOf="@id/google"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        tools:ignore="SpeakableTextPresentCheck,UseAppTint" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/hacc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/regular"
+        android:paddingTop="4dp"
+        android:text="@string/don_t_have_an_account"
+        android:textColor="@color/hint"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/sign_up"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/divider"
+        app:layout_constraintTop_toBottomOf="@id/facebook" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_up"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/semibold"
+        android:text="@string/sign_up"
+        android:textColor="@color/primary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/hacc"
+        app:layout_constraintEnd_toEndOf="@id/divider"
+        app:layout_constraintStart_toEndOf="@id/hacc"
+        app:layout_constraintTop_toBottomOf="@id/facebook"
+        app:layout_constraintTop_toTopOf="@id/hacc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
